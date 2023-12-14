@@ -21,6 +21,16 @@ io.on('connection', (socket) => {
     // Send a response back to the client
     io.emit('message', `Server received: ${message}`);
   });
+  socket.on('worklogAccepted', (message) => {
+    console.log(`Received: ${message}`);
+    // Send a response back to the client
+    io.emit('worklogAccepted', `Server received: ${message}`);
+  });
+  socket.on('worklogDenied', (message) => {
+    console.log(`Received: ${message}`);
+    // Send a response back to the client
+    io.emit('worklogAccepted', `Server received: ${message}`);
+  });
   // Listen for the socket to disconnect
   socket.on('disconnect', () => {
     console.log('Client disconnected');
