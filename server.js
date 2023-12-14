@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
   socket.on('worklogDenied', (message) => {
     console.log(`Received: WK denied ${message}`);
     // Send a response back to the client
-    io.emit('worklogAccepted', `Server received: ${JSON.stringify(message)}`);
+    io.emit('worklogDenied', `Server received: ${JSON.stringify(message)}`);
   });
   // Listen for the socket to disconnect
   socket.on('disconnect', () => {
