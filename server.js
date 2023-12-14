@@ -22,14 +22,14 @@ io.on('connection', (socket) => {
     io.emit('message', `Server received: ${message}`);
   });
   socket.on('worklogAccepted', (message) => {
-    console.log(`Received: WK accepted ${message}`);
+    console.log(`Received: WK accepted ${JSON.stringify(message)}`);
     // Send a response back to the client
     io.emit('worklogAccepted', `Server received: ${message}`);
   });
   socket.on('worklogDenied', (message) => {
     console.log(`Received: WK denied ${message}`);
     // Send a response back to the client
-    io.emit('worklogAccepted', `Server received: ${message}`);
+    io.emit('worklogAccepted', `Server received: ${JSON.stringify(message)}`);
   });
   // Listen for the socket to disconnect
   socket.on('disconnect', () => {
